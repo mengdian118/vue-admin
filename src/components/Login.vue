@@ -3,11 +3,11 @@
     <div class="login-box">
       <!-- 头像 -->
       <div class="avatar-box">
-        <img src="../assets/logo.png" alt="" />
+        <img src="../assets/logo.png" alt="">
       </div>
       <el-form
-        label-width="0"
         ref="loginFormRef"
+        label-width="0"
         :model="loginForm"
         :rules="loginRules"
         class="login-form"
@@ -17,7 +17,7 @@
           <el-input v-model="loginForm.username">
             <i slot="prefix" class="el-input__icon">
               <svg class="defined-icon" aria-hidden="true">
-                <use xlink:href="#icon-username"></use>
+                <use xlink:href="#icon-username" />
               </svg>
             </i>
           </el-input>
@@ -25,13 +25,13 @@
         <!-- 密码 -->
         <el-form-item prop="password">
           <el-input
+            v-model="loginForm.password"
             type="password"
             autocomplete="off"
-            v-model="loginForm.password"
           >
             <i slot="prefix" class="el-input__icon">
               <svg class="defined-icon" aria-hidden="true">
-                <use xlink:href="#icon-password"></use>
+                <use xlink:href="#icon-password" />
               </svg>
             </i>
           </el-input>
@@ -39,62 +39,62 @@
         <!-- 按钮区域 -->
         <el-form-item class="sub-btns">
           <el-button type="primary" @click="login">登录</el-button>
-          <el-button type="info" @click="resetForm('loginFormRef')"
-            >重置</el-button
-          >
+          <el-button
+            type="info"
+            @click="resetForm('loginFormRef')"
+          >重置</el-button>
         </el-form-item>
       </el-form>
     </div>
   </div>
 </template>
 <script>
-import "../assets/fonts/iconfont.js";
 export default {
   data() {
     return {
       loginForm: {
-        username: "admin",
-        password: "123456",
+        username: 'admin',
+        password: '123456'
       },
       loginRules: {
         username: [
-          { required: true, message: "请输入登录名称", trigger: "blur" },
+          { required: true, message: '请输入登录名称', trigger: 'blur' },
           {
             min: 3,
             max: 10,
-            message: "长度在 3 到 10 个字符",
-            trigger: "blur",
-          },
+            message: '长度在 3 到 10 个字符',
+            trigger: 'blur'
+          }
         ],
         password: [
-          { required: true, message: "请输入密码", trigger: "blur" },
+          { required: true, message: '请输入密码', trigger: 'blur' },
           {
             min: 6,
             max: 15,
-            message: "长度在 6 到 15 个字符",
-            trigger: "blur",
-          },
-        ],
-      },
-    };
+            message: '长度在 6 到 15 个字符',
+            trigger: 'blur'
+          }
+        ]
+      }
+    }
   },
   methods: {
-    login () {
-      this.$refs.loginFormRef.validate(async (valid) => {
-        if (!valid) return;
-        const { data: res } = await this.$http.post("login", this.loginForm);
-        if (res.meta.status !== 200) return this.$message.error("登录失败");
-        this.$message.success("登录成功");
-        console.log(res);
-        window.sessionStorage.setItem("token", res.data.token);
-        this.$router.push("/home");
-      });
+    login() {
+      this.$refs.loginFormRef.validate(async valid => {
+        if (!valid) return
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        if (res.meta.status !== 200) return this.$message.error('登录失败')
+        this.$message.success('登录成功')
+        console.log(res)
+        window.sessionStorage.setItem('token', res.data.token)
+        this.$router.push('/home')
+      })
     },
-    resetForm (formName) {
-      this.$refs[formName].resetFields();
-    },
-  },
-};
+    resetForm(formName) {
+      this.$refs[formName].resetFields()
+    }
+  }
+}
 </script>
 <style lang="scss" scoped>
 .login-container {
