@@ -3,7 +3,7 @@
     <el-header class="admin-header">
       <!-- 头部区域 -->
       <div class="admin-header-left">
-        <img src="../assets/test.jpg" alt="后台管理logo">
+        <img src="../../assets/test.jpg" alt="后台管理logo">
         <span>后台电商管理系统</span>
       </div>
       <el-button

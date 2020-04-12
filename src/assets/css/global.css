@@ -1,4 +1,4 @@
-html,body,#app{height:100%;margin:0;padding:0;}
+html,body,#app{height:100%;margin:0;padding:0;min-width:1366px;}
 .defined-icon {
     width: 1em;
     height: 1em;
