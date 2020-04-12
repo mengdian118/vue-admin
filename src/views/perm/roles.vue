@@ -16,7 +16,7 @@
       <!-- 角色列表 -->
       <el-table :data="rolesList" border stripe>
         <el-table-column type="expand">
-          <template slot-scope="scope">
+          <template v-slot="scope">
             <el-row v-for="(item1,index1) in scope.row.children" :key="item1.id" :class="['bdbottom', index1 === 0 ? 'bdtop' : '', 'vcenter' ]">
               <!-- 渲染一级权限 -->
               <el-col :span="5">
@@ -43,7 +43,7 @@
         <el-table-column prop="roleName" label="角色名称" />
         <el-table-column prop="roleDesc" label="角色描述" />
         <el-table-column label="操作" width="300px">
-          <template slot-scope="scope">
+          <template v-slot="scope">
             <el-button type="primary" icon="el-icon-edit" size="mini">编辑</el-button>
             <el-button type="danger" icon="el-icon-delete" size="mini">删除</el-button>
             <el-button type="warning" icon="el-icon-setting" size="mini" @click="showSetRightDialog(scope.row)">分配权限</el-button>
