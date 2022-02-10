@@ -51,7 +51,7 @@
     "html-webpack-plugin": "^4.0.4",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "plop": "^2.6.0",
     "postcss-plugin-px2rem": "^0.8.1",
     "runjs": "^4.4.2",
